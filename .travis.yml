@@ -14,3 +14,12 @@ before_script:
 script:
 - ng lint
 - ng build --prod --output-path docs --base-href /whado/
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  local_dir: docs
+  on:
+    branch: master
